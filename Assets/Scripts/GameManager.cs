@@ -8,6 +8,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] bool spawnCharacter = true;
     [SerializeField] Character characterPrefab;
     [SerializeField] ParticleSystem confetti;
     [SerializeField] TMP_Text level;
@@ -17,8 +18,13 @@ public class GameManager : MonoBehaviour
     bool paused = false;
 
     private void OnEnable() {
-        character = Instantiate(characterPrefab, characterPrefab.startingPostion, Quaternion.identity);
-        level.text = "Level " + SceneManager.GetActiveScene().buildIndex;
+        if (spawnCharacter)
+            character = Instantiate(characterPrefab, characterPrefab.startingPostion, Quaternion.identity);
+        
+        if (SceneManager.GetActiveScene().name != "Sandbox") {
+            level.text = "Level " + SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("LastPlayedLevel", SceneManager.GetActiveScene().buildIndex);
+        }
 
         Character.characterDeactivated += CharacterDeactivated;
         Character.characterReachedGoal += CharacterReachedGoal;
@@ -42,6 +48,7 @@ public class GameManager : MonoBehaviour
     private void CharacterReachedGoal() {
         confetti.transform.position = character.transform.position;
         confetti.Play();
+        UIAudio.playSound(3);
         StartCoroutine(NextScene());
     }
 
@@ -59,5 +66,11 @@ public class GameManager : MonoBehaviour
             paused = true;
             pauseButtonText.text = "Play";
         }
+        UIAudio.playSound(1);
+    }
+
+    public void ReturnToTitle() {
+        SceneManager.LoadScene("Title");
+        UIAudio.playSound(1);
     }
 }

@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Bounce Pad
-  Description: Bounces the characer into the air!
+  Description: Super bouncy!
 --- !u!1 &7086806848359212397
 GameObject:
   m_ObjectHideFlags: 0

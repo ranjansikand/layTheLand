@@ -1,4 +1,4 @@
-// Respawning character class
+ // Respawning character class
 
 
 using System.Collections;
@@ -53,7 +53,13 @@ public class Character : MonoBehaviour
             case (6): Goal(); break;
             case (7): Jump(); break;
             case (8): Boost(); break;
+            case (9): LowGrav(); break;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.layer == 0) UIAudio.playSound(6, Vector3.Magnitude(rb.velocity) * 0.2f);
+        else if (other.gameObject.layer == 10) UIAudio.playSound(7, Vector3.Magnitude(rb.velocity) * 0.2f);
     }
     #endregion
 
@@ -63,8 +69,10 @@ public class Character : MonoBehaviour
         yield return freezeTime;
 
         // Start motion
+        rb.gravityScale = 1;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.velocity = Vector2.right * speed;
+        UIAudio.playSound(0);
 
         yield return respawnTime;
 
@@ -81,7 +89,6 @@ public class Character : MonoBehaviour
         StopCoroutine(moveRoutine);
         rb.drag = 2f;
 
-        
         if (characterReachedGoal != null) characterReachedGoal();
     }
 
@@ -90,7 +97,13 @@ public class Character : MonoBehaviour
     }
 
     private void Boost() {
+        UIAudio.playSound(5);
         rb.AddForce(Vector3.right * jumpForce, ForceMode2D.Impulse);
+    }
+
+    private void LowGrav() {
+        UIAudio.playSound(4);
+        rb.gravityScale = -0.85f;
     }
     #endregion
 }

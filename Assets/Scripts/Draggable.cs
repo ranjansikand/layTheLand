@@ -33,6 +33,7 @@ public class Draggable :
 
     public void OnEndDrag(PointerEventData data) {
         // Snap to grid
+        UIAudio.playSound(2, 0.25f);
         isDragging = false;
         transform.DOMove(new Vector2(RoundToHalf(transform.position.x), Mathf.RoundToInt(transform.position.y) + 0.5f), 0.15f);
     }

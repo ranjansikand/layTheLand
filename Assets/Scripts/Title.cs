@@ -24,6 +24,10 @@ public class Title : MonoBehaviour
     }
 
     public void Continue() {
-        SceneManager.LoadScene(lastPlayedLevel.ToString());
+        SceneManager.LoadScene(lastPlayedLevel);
+    }
+
+    public void Sandbox() {
+        SceneManager.LoadScene("Sandbox");
     }
 }
