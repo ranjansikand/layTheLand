@@ -1,7 +1,7 @@
 // Respawning character class
 
+
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -20,9 +20,9 @@ public class Character : MonoBehaviour
     Coroutine moveRoutine = null;
 
     
-    [SerializeField] float speed = 5f, jumpForce = 12f;
-    [SerializeField] Vector3 startingPostion = new Vector3(-8.75f, 0.5f, 0f);
-    [SerializeField] float fallMultiplier = 2.5f, lowJumpMultiplier = 2f;
+    float speed = 5f, jumpForce = 12f;
+    public Vector3 startingPostion = new Vector3(-8.75f, 0.5f, 0f);
+    float fallMultiplier = 2.5f, lowJumpMultiplier = 2f;
 
     #region Unity Methods
     private void Awake() {

@@ -145,11 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543143516b7b1b7438b5ce4380ffa64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
-  jumpForce: 12
-  startingPostion: {x: -8.75, y: 0.5, z: 0}
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
+  startingPostion: {x: -8.5, y: 0.5, z: 0}
 --- !u!95 &4960814482865340211
 Animator:
   serializedVersion: 3
