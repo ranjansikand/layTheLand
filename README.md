@@ -1,5 +1,4 @@
-Lay the Land
-
+#Lay the Land#
 This is a quick game jam submission that I spent a Saturday morning on. 
 
 The theme was "Reverse," so this is a game with two layers of reversal:
