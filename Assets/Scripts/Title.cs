@@ -1,8 +1,6 @@
 // Lets you start the game
 
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,13 +19,16 @@ public class Title : MonoBehaviour
 
     public void NewGame() {
         SceneManager.LoadScene("0");
+        UIAudio.playSound(1);
     }
 
     public void Continue() {
         SceneManager.LoadScene(lastPlayedLevel);
+        UIAudio.playSound(1);
     }
 
     public void Sandbox() {
         SceneManager.LoadScene("Sandbox");
+        UIAudio.playSound(1);
     }
 }

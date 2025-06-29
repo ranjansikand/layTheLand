@@ -2,7 +2,6 @@
 
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Scene : MonoBehaviour
@@ -20,7 +19,7 @@ public class Scene : MonoBehaviour
 
         foreach (GameObject obj in objectPrefabs) {
             Instantiate(obj, objPos, Quaternion.identity, transform);
-            objPos += new Vector3(1, 0, 0);
+            objPos += new Vector3(1.5f, 0, 0);
             yield return null;
         }
     }

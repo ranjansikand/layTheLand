@@ -11,6 +11,15 @@ public class Draggable :
 {
     [SerializeField] SpriteRenderer sprite;
     public static bool isDragging = false;
+    int originalLayer;
+
+    private void Awake() {
+        originalLayer = gameObject.layer;
+    }
+
+    private void Start() {
+        gameObject.layer = 11;
+    }
 
     public void OnPointerEnter(PointerEventData data) {
         sprite.transform.DOScale(Vector3.one * 1.15f, 0.125f);
@@ -24,6 +33,7 @@ public class Draggable :
 
     public void OnBeginDrag(PointerEventData data) {
         isDragging = true;
+        gameObject.layer = 11;
     }
 
     public void OnDrag(PointerEventData data) {
@@ -35,6 +45,7 @@ public class Draggable :
         // Snap to grid
         UIAudio.playSound(2, 0.25f);
         isDragging = false;
+        gameObject.layer = originalLayer;
         transform.DOMove(new Vector2(RoundToHalf(transform.position.x), Mathf.RoundToInt(transform.position.y) + 0.5f), 0.15f);
     }
 
