@@ -32,8 +32,7 @@ It’s a small, experimental project made to explore **level design** and **emer
 
 ## Play the Game
 
-You can play **Lay the Land** directly in your browser:  
-[**Play Lay the Land**](https://your-game-link.com](https://unbreaded.itch.io/lay-the-land))
+You can play **Lay the Land** directly in your browser:  [**Lay the Land on Itch**](https://your-game-link.com](https://unbreaded.itch.io/lay-the-land))
 
 ---
 
